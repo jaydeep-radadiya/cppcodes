@@ -1,4 +1,4 @@
-*.inputf.in
-*.outputf.in
+inputf.in
+outputf.in
 *.class
 *.exe
