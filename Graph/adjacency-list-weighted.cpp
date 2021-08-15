@@ -5,6 +5,7 @@ int main() {
 	int n, e;
 	cin >> n >> e;
 
+	// array of vector
 	vector<pair<int, int>> *adj = new vector<pair<int, int>>[n + 1];
 
 	for (int i = 0; i < e; i++) {
