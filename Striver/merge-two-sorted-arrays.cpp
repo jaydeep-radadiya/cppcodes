@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void merge(int arr1[],int arr2[],int m,int n){
-	for(int i=0;i<m;i++){
+void merge(int arr1[],int arr2[],int n1,int n2){
+	for(int i=0;i<n1;i++){
 		if(arr1[i]>arr2[0]){
 			swap(arr1[i],arr2[0]);
 			int first = arr2[0];
 
 			int j = 1;
-			while(j<n and first>arr2[j]){
+			while(j<n2 and first>arr2[j]){
 				arr2[j-1] = arr2[j];
 				j++;
 			}
@@ -17,29 +17,29 @@ void merge(int arr1[],int arr2[],int m,int n){
 	}
 }
 
-void secondMethod(int arr1[],int arr2[],int m,int n){
-	for(int i=m-1,j=0;i>=0 and j<n;i--,j++){
+void secondMethod(int arr1[],int arr2[],int n1,int n2){
+	for(int i=n1-1,j=0;i>=0 and j<n2;i--,j++){
 		if(arr2[j]<arr1[i]){
 			swap(arr1[i],arr2[j]);
 		}
 	}
 
-	sort(arr1,arr1+m);
-	sort(arr2,arr2+n);
+	sort(arr1,arr1+n1);
+	sort(arr2,arr2+n2);
 }
 
 int main(){
-	int m,n;
-	cin>>m>>n;
-	int arr1[m];
-	for(int i=0;i<m;i++)
+	int n1,n2;
+	cin>>n1>>n2;
+	int arr1[n1];
+	for(int i=0;i<n1;i++)
 		cin>>arr1[i];
-	int arr2[n];
-	for(int i=0;i<n;i++)
+	int arr2[n2];
+	for(int i=0;i<n2;i++)
 		cin>>arr2[i];
 
-	// merge(arr1,arr2,m,n);
-	secondMethod(arr1,arr2,m,n);
+	merge(arr1,arr2,n1,n2);
+	// secondMethod(arr1,arr2,n1,n2);
 
 	cout<<"arr1 : "<<"\n";
 	for(int ele : arr1)
